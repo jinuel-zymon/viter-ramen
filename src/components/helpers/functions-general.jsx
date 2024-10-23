@@ -1,0 +1,1 @@
+export const devImgPath = "http://localhost/viter-ramen/public/img"

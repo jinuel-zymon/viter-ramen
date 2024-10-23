@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  body {
+    @apply font-sans text-black leading-relaxed
+  }
+
+  h1, h2, h3,h4,h5,h6 {
+    @apply font-bold
+  }
+
+  h1 {
+    @apply text-[clamp(30px,_calc(6vw+1px),_50px)] mb-8 leading-snug;
+  }
+
+  h2 {
+    @apply text-[clamp(25px,_calc(6vw+1px),_45px)] mb-6 leading-snug;
+  }
+
+  h3 {
+    @apply text-[clamp(20px,_calc(6vw+1px),_40px)] mb-5 leading-normal;
+  }
+
+  h4 {
+    @apply text-[clamp(18px,_calc(6vw+1px),_25px)] mb-5 leading-normal;
+  }
+
+  h5 {
+    @apply text-[clamp(16px,_calc(6vw+1px),_20px)] mb-5 leading-normal;
+  }
+
+  p {
+    @apply leading-relaxed
+  }
+
+  a {
+    @apply no-underline
+  }
+
+  ul, ol {
+    @apply list-none
+  }
+  
+  img {
+    @apply max-w-full block
+  }
+
+}
+
+@layer components {
+  .container {
+    @apply max-w-[1400px] w-full mx-auto px-4
+  }
+}
+
+@layer utilities {
+  .btn {
+    @apply px-5 py-3 rounded-md border border-transparent transition-all
+  }
+  .btn-accent {
+    @apply bg-accent text-white
+  }
+  .btn-dark {
+    @apply bg-dark text-white
+  }
+}
