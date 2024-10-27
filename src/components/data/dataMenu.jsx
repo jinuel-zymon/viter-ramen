@@ -10,7 +10,7 @@ export const ramenMenu = [
         \ngreen onions
         `,
         category: "Shoyu Tonkotsu",
-        image: "https://via.placeholder.com/200x200"
+        image: "menu-1.jpg"
     },
     {
         name: "Sapporo",
@@ -23,7 +23,7 @@ export const ramenMenu = [
         \ngreen onions
         `,
         category: "Miso Tonkotsu",
-        image: "https://via.placeholder.com/200x200"
+        image: "menu-2.jpg"
     },
     {
         name: "Veggie",
@@ -36,7 +36,7 @@ export const ramenMenu = [
         \ngreen onions
         `,
         category: "Shoyu Shiitake",
-        image: "https://via.placeholder.com/200x200"
+        image: "menu-3.jpg"
     },
     {
         name: "Meat Lovers",
@@ -49,7 +49,7 @@ export const ramenMenu = [
         \ngreen onions
         `,
         category: "Shoyu Tonkotsu",
-        image: "https://via.placeholder.com/200x200"
+        image: "menu-4.jpg"
     },
     {
         name: "Dipping",
@@ -62,7 +62,7 @@ export const ramenMenu = [
         \ngreen onions
         `,
         category: "Fish Tonkotsu",
-        image: "https://via.placeholder.com/200x200"
+        image: "menu-5.jpg"
     },
     {
         name: "Texas",
@@ -75,7 +75,7 @@ export const ramenMenu = [
         \ngreen onions
         `,
         category: "Tomato Tonkotsu",
-        image: "https://via.placeholder.com/200x200"
+        image: "menu-6.jpg"
     },
     {
         name: "Jungle",
@@ -88,7 +88,7 @@ export const ramenMenu = [
         \ngreen onions
         `,
         category: "Lemongrass Tonkotsu",
-        image: "https://via.placeholder.com/200x200"
+        image: "menu-7.jpg"
     },
     {
         name: "Special",
@@ -101,6 +101,6 @@ export const ramenMenu = [
         \ngreen onions
         `,
         category: "Tomato Tonkotsu",
-        image: "https://via.placeholder.com/200x200"
+        image: "menu-8.jpg"
     },
 ]

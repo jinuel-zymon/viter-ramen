@@ -1,4 +1,4 @@
-import Header from '@/components/partials/Header'
+
 import React from 'react'
 import HomeBanner from './HomeBanner'
 import HomeOrder from './HomeOrder'
@@ -10,7 +10,6 @@ import HomeSlider from './HomeSlider'
 const Home = () => {
   return (
     <div>
-        <Header/>
         <HomeBanner/>
         <HomeOrder/>
         <HomeMenu/>

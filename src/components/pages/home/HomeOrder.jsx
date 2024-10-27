@@ -1,6 +1,7 @@
 import { ChevronRight } from 'lucide-react'
 import React from 'react'
 import HomeOrderStep from './HomeOrderStep'
+import { devImgPath } from '@/components/helpers/functions-general'
 
 const HomeOrder = () => {
   return (
@@ -15,17 +16,17 @@ const HomeOrder = () => {
 
         <div className="order-steps flex gap-5 justify-center items-center">
             <HomeOrderStep
-            image="https://via.placeholder.com/200x200"
+            image={`${devImgPath}/order-1.png`}
             step="PICK YOUR RAMEN"
             />
             <ChevronRight stroke={"#dc2626"} size={45}/>
             <HomeOrderStep
-            image="https://via.placeholder.com/200x200"
+            image={`${devImgPath}/order-2.png`}
             step="PICK YOUR BROTH"
             />
             <ChevronRight stroke={"#dc2626"} size={45}/>
             <HomeOrderStep
-            image="https://via.placeholder.com/200x200"
+            image={`${devImgPath}/order-3.png`}
             step="ADD TOPPINGS"
             />
         </div>

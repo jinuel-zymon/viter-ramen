@@ -3,6 +3,8 @@ import React from 'react'
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { ramenSliderImg } from '@/components/data/dataSliderImage';
+import { devImgPath } from '@/components/helpers/functions-general';
 
 
 const HomeSlider = () => {
@@ -12,30 +14,26 @@ const HomeSlider = () => {
           infinite: true,
           speed: 500,
           slidesToShow: 4,
-          slidesToScroll: 1
+          slidesToScroll: 1,
+          arrows: false
         };
 
   return (
-    <div>
-        <section className='bg-accent'>
-            <div className="container px-0 relative">
+    <>
+        <section className='bg-accent p-0'>
+            <div className="container p-0">
                 <Slider {...settings}>
-                    <div className='w-[100px] h-[250px] bg-red-600'>
-                    <h3>1</h3>
+                  {ramenSliderImg.map((item,key)=>{
+                    return(
+                    <div className='slider-item outline-none' key={key}>
+                    <img src={`${devImgPath}/${item.image}`} alt="" className='w-full h-[250px] object-cover object-center'/>
                     </div>
-                    <div className='w-[100px] h-[250px] bg-blue-500'>
-                    <h3>2</h3>
-                    </div>
-                    <div className='w-[100px] h-[250px] bg-green-600'>
-                    <h3>3</h3>
-                    </div>
-                    <div className='w-[100px] h-[250px] bg-gray-600'>
-                    <h3>4</h3>
-                    </div>
+                    )
+                  })}
                 </Slider>
             </div>
         </section>
-    </div>
+    </>
   )
 }
 

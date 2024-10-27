@@ -3,7 +3,7 @@ import HomeMenuItem from './HomeMenuItem'
 
 const HomeMenu = () => {
   return (
-    <section className="py-24 bg-accent">
+    <section className="py-24 bg-pattern">
         <div className="container">
             <div className="flex flex-col items-center">
                 <h2 className='uppercase text-white text-center mb-20'>RAMEN MENU</h2>

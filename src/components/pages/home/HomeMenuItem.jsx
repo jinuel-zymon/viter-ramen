@@ -1,4 +1,5 @@
 import { ramenMenu } from '@/components/data/dataMenu'
+import { devImgPath } from '@/components/helpers/functions-general'
 import React from 'react'
 import Markdown from 'react-markdown'
 
@@ -18,7 +19,7 @@ const HomeMenuItem = () => {
                     </h5>
                     <h4 className='uppercase whitespace-nowrap'>{item.category}</h4>
                 </div>
-                <img src={item.image} alt="" className='size-[200px]'/>
+                <img src={`${devImgPath}/${item.image}`} alt="" className='size-[200px] rounded-full object-cover object-center'/>
             </div>
         )
     })}
