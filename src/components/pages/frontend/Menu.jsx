@@ -1,19 +1,15 @@
 import useQueryData from "@/components/custom-hook/useQueryData";
 import { imgPath } from "@/components/helpers/functions-general.jsx";
-import { Plus } from "lucide-react";
-import SpinnerTable from "../backend/partials/spinners/SpinnerTable";
-import SpinnerButton from "../backend/partials/spinners/SpinnerButton";
-import SpinnerWindow from "../backend/partials/spinners/SpinnerWindow";
-import SpinnerMenu from "../backend/partials/spinners/SpinnerMenu";
-import ModalToppings from "./ModalToppings";
+import { setMessage, setSuccess } from "@/components/store/storeAction";
 import { StoreContext } from "@/components/store/storeContext";
-import { setCart, setSuccess } from "@/components/store/storeAction";
+import { Plus } from "lucide-react";
 import React from "react";
+import SpinnerMenu from "../backend/partials/spinners/SpinnerMenu";
+import ToastSuccess from "../backend/partials/ToastSuccess";
 
-const Menu = ({cartItem, setCartItem}) => {
+
+const Menu = ({ ramenCart, setRamenCart, setShowToppings }) => {
   const { store, dispatch } = React.useContext(StoreContext);
-  const [showToppings, setShowToppings] = React.useState(false)
-
   const {
     isLoading,
     isFetching,
@@ -24,61 +20,63 @@ const Menu = ({cartItem, setCartItem}) => {
     "get", // method
     "ramen"
   );
+  const handleAddRamen = (item) => {
+    const exist = ramenCart.find((cart) => cart.ramen_aid === item.ramen_aid);
 
-  const handleAddItem = (item) => {
-    const exist = cartItem.find((cart) => cart.ramen_aid === item.ramen_aid);
 
     if (exist !== undefined) {
-      setCartItem(
-        cartItem.map((cart) =>
+      setRamenCart(
+        ramenCart.map((cart) =>
           cart.ramen_aid === item.ramen_aid
             ? { ...exist, quantity: exist.quantity + 1 }
             : cart
         )
       );
     } else {
-      setCartItem([...cartItem, { ...item, quantity: 1 }]);
+      setRamenCart([...ramenCart, { ...item, quantity: 1 }]);
     }
+    setShowToppings(true)
     dispatch(setSuccess(true));
-    setShowToppings(true);
+    dispatch(setMessage("Added to Cart!"));
   };
+
 
   return (
     <>
       <section className="py-24 bg-orange bg-[url('./public/img/pattern.webp')] bg-repeat bg-center bg-blend-color-burn bg-opacity-100">
-        <div className='container'>
-          <h2 className='text-center uppercase text-white '>Ramen Menu</h2>
-
+        <div className="container">
+          <h2 className="text-center uppercase text-white ">Ramen Menu</h2>
           {isLoading && (
-            <div className='min-h-[400px] w-full relative'>
+            <div className="min-h-[400px] w-full relative">
               <SpinnerMenu />
             </div>
           )}
-          <div className='grid md:grid-cols-2 gap-10 mt-14'>
+          <div className="grid grid-cols-2 gap-10 mt-14">
             {!isLoading &&
               result?.data.map((item, key) => {
                 return (
-                  <div className='grid-item mb-6' key={key}>
-                    <div className='grid md:grid-cols-[250px_1fr] gap-2 items-center justify-center'>
+                  <div className="grid-item mb-6" key={key}>
+                    <div className="grid grid-cols-[250px_1fr] gap-2 items-center">
                       <div>
-                        <h3 className='mb-2'>{item.ramen_title}</h3>
-                        <h4 className='mb-5 text-nowrap'>
+                        <h3 className="mb-2">{item.ramen_title}</h3>
+                        <h4 className="mb-5 text-nowrap">
                           {item.ramen_category}
                         </h4>
-                        <h4 className='text-accent'>PHP {item.ramen_price}</h4>
+                        <h4 className="text-accent">PHP {item.ramen_price}</h4>
+
 
                         <p>{item.ramen_description}</p>
                         <button
-                          className='btn btn-accent'
-                          onClick={() => handleAddItem(item)}
+                          className="btn btn-accent"
+                          onClick={() => handleAddRamen(item)}
                         >
                           <Plus size={18} /> Add to Cart
                         </button>
                       </div>
                       <img
                         src={`${imgPath}/${item.ramen_photo}`}
-                        alt=''
-                        className='size-[300px] rounded-full object-cover'
+                        alt=""
+                        className="size-[300px] rounded-full object-cover"
                       />
                     </div>
                   </div>
@@ -87,10 +85,16 @@ const Menu = ({cartItem, setCartItem}) => {
           </div>
         </div>
       </section>
-      {showToppings && <ModalToppings setShowToppings={setShowToppings} cartItem={cartItem} setCartItem={setCartItem}/>}
-      {/* <ModalToppings/> */}
+      {store.success && <ToastSuccess/>}
+
+
     </>
   );
 };
 
+
 export default Menu;
+
+
+
+

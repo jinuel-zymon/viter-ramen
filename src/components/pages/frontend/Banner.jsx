@@ -2,11 +2,19 @@ import { Dot } from 'lucide-react'
 import React from 'react'
 import Header from './Header'
 
-const Banner = () => {
+
+const Banner = ({ramenCart, dessertCart, drinksCart, toppingsCart}) => {
   return (
-    <section className="bg-[url('./public/img/banner.webp')] md:bg-cover bg-no-repeat bg-[left_top_-400px] min-h-screen relative ">
+    <section className="bg-[url('./public/img/banner.webp')] bg-cover bg-no-repeat bg-[left_top_-400px] min-h-screen relative ">
       <div className="container">
-        <Header/>
+       
+        <Header
+        ramenCart={ramenCart}
+        dessertCart={dessertCart}
+        drinksCart={drinksCart}
+        toppingsCart={toppingsCart}
+        />
+
         <div className="absolute top-[14vw] left-1/2 -translate-x-1/2 text-center uppercase">
           <h1 className="text-white mb-1 text-[clamp(50px,_6vw,_180px)]">
             Michi Ramen
@@ -20,4 +28,9 @@ const Banner = () => {
   )
 }
 
+
 export default Banner
+
+
+
+
