@@ -58,6 +58,7 @@ const RamenModalAdd = ({itemEdit}) => {
     ramen_title: Yup.string().required('Required'),
     ramen_price: Yup.string().required('Required'),
     ramen_description: Yup.string().required('Required'),
+    ramen_category: Yup.string().required('Required'),
   })
 
 
@@ -128,7 +129,7 @@ const RamenModalAdd = ({itemEdit}) => {
                   onDrop={(e) => handleChangePhoto(e)}
                   className={`opacity-0 absolute top-0 right-0 bottom-0 left-0 rounded-full  m-auto cursor-pointer w-full h-full ${mutation.isPending ? "pointer-events-none" : ""}`}
                 />
-              </div>
+                </div>
 
                   <div className="input-wrap">
                       <InputText
